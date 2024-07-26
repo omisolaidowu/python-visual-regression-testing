@@ -1,3 +1,7 @@
+# Visual Regression Test
+
+This repository describes how to perform a visual regression test using Selenium in Python.
+
 ```
 regression_testing
 ├─ compare
