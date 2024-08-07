@@ -15,19 +15,20 @@ class Setting:
             options = webdriver.ChromeOptions()
             options.browser_version = "latest"
             options.platform_name = "Windows 11"
+            options.browser_version = "126"
+
             lt_options = {}
             lt_options["username"] = os.getenv("LT_USERNAME")
             lt_options["accessKey"] = os.getenv("LT_ACCESS_KEY")
-            lt_options["build"] = "Visual Regression Demo"
-            lt_options["project"] = "Selenium Visual Regression"
-            lt_options["smartUI.project"] = "Visual Regression Test"
-            lt_options["name"] = self.test_name
+            lt_options["project"] = "Screenshot regression"
+            lt_options["smartUI.project"] = "Visual-Regression"
+            lt_options["smartUI.baseline"] = False
             lt_options["w3c"] = True
-            lt_options["console"] = True
-            lt_options["network"] = True
-            lt_options["plugin"] = "python-python"
 
-            self.config = {"screenshotName": "SmartUI Visual Screenshot"}
+            lt_options["plugin"] = "python-python"
+            options.set_capability("LT:Options", lt_options)
+
+            self.config = {"screenshotName": "Visual Screenshot"}
 
             options.set_capability("LT:Options", lt_options)
 

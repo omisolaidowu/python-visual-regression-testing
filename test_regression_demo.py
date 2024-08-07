@@ -12,15 +12,20 @@ screenshot = Screenshot()
 class TestRegression:
 
     def test_should_take_screenshots(self):
-        setting.setUp()
+        try:
+            setting.setUp()
 
-        driver = setting.driver
+            driver = setting.driver
 
-        driver.get("https://ecommerce-playground.lambdatest.io/")
+            driver.get("https://ecommerce-playground.lambdatest.io/")
 
-        screenshot.take_screenshot(driver)
+            screenshot.take_screenshot(driver)
+            driver.execute_script("lambda-status=passed")
+            setting.tearDown()
+        except Exception as error:
+            driver.execute_script("lambda-status=failed")
+            print(f"Failed: {error}")
+            setting.tearDown()
 
-        setting.tearDown()
 
-
-TestRegression().test_should_take_screenshots()
+# TestRegression().test_should_take_screenshots()

@@ -38,4 +38,6 @@ class Screenshot:
                 else:
                     print(f"Visual changes detected! Saved at {diff_path}")
         elif EXEC_PLATFORM == "cloud":
-            driver.execute_script("smartui.takeScreenshot", setting.config)
+            return driver.execute_script("smartui.takeScreenshot", setting.config)
+
+        return "An error occured"
