@@ -38,6 +38,10 @@ class Screenshot:
                 else:
                     print(f"Visual changes detected! Saved at {diff_path}")
         elif EXEC_PLATFORM == "cloud":
-            return driver.execute_script("smartui.takeScreenshot", setting.config)
 
-        return "An error occured"
+            try:
+                driver.execute_script("lambda-status=passed")
+                return driver.execute_script("smartui.takeScreenshot", setting.config)
+            except Exception as error:
+                driver.execute_script("lambda-status=failed")
+                return f"{error}, an error occured"

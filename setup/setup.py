@@ -11,8 +11,8 @@ EXEC_PLATFORM = os.getenv("EXEC_PLATFORM")
 class Setting:
     def __init__(self, test_name):
         self.test_name = test_name
+        options = webdriver.ChromeOptions()
         if EXEC_PLATFORM == "cloud":
-            options = webdriver.ChromeOptions()
             options.browser_version = "latest"
             options.platform_name = "Windows 11"
             options.browser_version = "126"
@@ -41,7 +41,8 @@ class Setting:
                 options=options,
             )
         elif EXEC_PLATFORM == "local":
-            self.driver = webdriver.Chrome()
+            options.add_argument("headless=new")
+            self.driver = webdriver.Chrome(options=options)
 
     def setUp(self):
         self.driver.implicitly_wait(10)
