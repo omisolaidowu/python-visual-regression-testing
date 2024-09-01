@@ -28,8 +28,6 @@ class Setting:
 
             options.set_capability("LT:Options", lt_options)
 
-            self.config = {"screenshotName": "Visual Screenshot"}
-
             ltHub = "@hub.lambdatest.com/wd/hub"
 
             gridURL = f"https://{LT_USERNAME}:{LT_ACCESS_KEY}{ltHub}"
@@ -38,6 +36,9 @@ class Setting:
                 command_executor=gridURL,
                 options=options,
             )
+
+            self.config = {"screenshotName": "Visual Screenshot"}
+
         elif EXEC_PLATFORM == "local":
             options.add_argument("headless=new")
             self.driver = webdriver.Chrome(options=options)
