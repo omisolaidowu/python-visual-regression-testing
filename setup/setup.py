@@ -24,13 +24,11 @@ class Setting:
             lt_options["smartUI.project"] = "Visual-Regression"
             lt_options["smartUI.baseline"] = False
             lt_options["w3c"] = True
-
             lt_options["plugin"] = "python-python"
+
             options.set_capability("LT:Options", lt_options)
 
             self.config = {"screenshotName": "Visual Screenshot"}
-
-            options.set_capability("LT:Options", lt_options)
 
             ltHub = "@hub.lambdatest.com/wd/hub"
 
