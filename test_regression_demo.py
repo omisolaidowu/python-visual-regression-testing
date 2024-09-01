@@ -26,4 +26,4 @@ class TestRegression:
             setting.tearDown()
 
 
-TestRegression().test_should_take_screenshots()
+# TestRegression().test_should_take_screenshots()

@@ -36,7 +36,6 @@ class Setting:
                 command_executor=gridURL,
                 options=options,
             )
-
             self.config = {"screenshotName": "Visual Screenshot"}
 
         elif EXEC_PLATFORM == "local":
