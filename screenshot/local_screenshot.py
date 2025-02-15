@@ -1,10 +1,5 @@
 import os
-from dotenv import load_dotenv
 from compare.compare import CompareImages
-
-load_dotenv(".env")
-
-EXEC_PLATFORM = os.getenv("EXEC_PLATFORM")
 
 compare = CompareImages()
 
