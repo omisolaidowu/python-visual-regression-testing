@@ -22,9 +22,11 @@ regression_testing
 ├─ compare
 │  └─ compare.py
 ├─ screenshot
-│  └─ screenshots.py
+│  └─ local_screenshot.py
+│  └─ smartui_screenshot.py
 ├─ setup
 │  └─ setup.py
-└─ test_regression_demo.py
+└─ test_local_regression_demo.py
+└─ test_smartui_regression_demo.py
 
 ```
