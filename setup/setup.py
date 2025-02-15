@@ -12,7 +12,7 @@ class Setting:
     def __init__(self, test_name):
         self.test_name = test_name
         options = webdriver.ChromeOptions()
-        if EXEC_PLATFORM == "cloud":
+        if EXEC_PLATFORM == "smartui":
             options.browser_version = "latest"
             options.platform_name = "Windows 11"
             options.browser_version = "126"

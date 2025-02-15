@@ -1,15 +1,13 @@
 from setup.setup import Setting
 
-from screenshot.screenshots import Screenshot
-
+from screenshot.smartui_screenshot import SmartuiScreenshot
 
 setting = Setting("Visual regression test")
 
+screenshot = SmartuiScreenshot()
 
-screenshot = Screenshot()
 
-
-class TestRegression:
+class TestLocalRegression:
 
     def test_should_take_screenshots(self):
         try:
@@ -24,6 +22,3 @@ class TestRegression:
         except Exception as error:
             print(f"Failed: {error}")
             setting.tearDown()
-
-
-# TestRegression().test_should_take_screenshots()

@@ -1,14 +1,8 @@
 import os
-
+from dotenv import load_dotenv
 from compare.compare import CompareImages
 
-from setup.setup import Setting
-
-from dotenv import load_dotenv
-
 load_dotenv(".env")
-
-setting = Setting("Visual regression test")
 
 EXEC_PLATFORM = os.getenv("EXEC_PLATFORM")
 
@@ -20,10 +14,12 @@ current_path = "current_screenshot.png"
 diff_path = "diff_screenshot.png"
 
 
-class Screenshot:
+class LocalScreenshot:
 
-    def take_screenshot(self, driver):
-        if EXEC_PLATFORM == "local":
+    def local_screenshot(self, driver):
+
+        try:
+
             driver.save_screenshot(current_path)
 
             if not os.path.exists(baseline_path):
@@ -37,11 +33,5 @@ class Screenshot:
                     print("No visual changes detected.")
                 else:
                     print(f"Visual changes detected! Saved at {diff_path}")
-        elif EXEC_PLATFORM == "cloud":
-
-            try:
-                driver.execute_script("lambda-status=passed")
-                return driver.execute_script("smartui.takeScreenshot", setting.config)
-            except Exception as error:
-                driver.execute_script("lambda-status=failed")
-                return f"{error}, an error occured"
+        except Exception as error:
+            return f"{error}, an error occured"
