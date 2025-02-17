@@ -1,5 +1,4 @@
 from setup.setup import Setting
-
 from screenshot.smartui_screenshot import SmartuiScreenshot
 
 setting = Setting("Visual regression test")
@@ -7,7 +6,7 @@ setting = Setting("Visual regression test")
 screenshot = SmartuiScreenshot()
 
 
-class TestLocalRegression:
+class TestSmartuiRegression:
 
     def test_should_take_screenshots(self):
         try:
@@ -17,7 +16,7 @@ class TestLocalRegression:
 
             driver.get("https://ecommerce-playground.lambdatest.io/")
 
-            screenshot.take_screenshot(driver)
+            screenshot.smartui_screenshot(driver)
             setting.tearDown()
         except Exception as error:
             print(f"Failed: {error}")

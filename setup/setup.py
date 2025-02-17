@@ -13,6 +13,7 @@ class Setting:
         self.test_name = test_name
         options = webdriver.ChromeOptions()
         if EXEC_PLATFORM == "smartui":
+            self.config = {"screenshotName": "Visual Screenshot"}
             options.browser_version = "latest"
             options.platform_name = "Windows 11"
             options.browser_version = "126"
@@ -36,7 +37,6 @@ class Setting:
                 command_executor=gridURL,
                 options=options,
             )
-            self.config = {"screenshotName": "Visual Screenshot"}
 
         elif EXEC_PLATFORM == "local":
             options.add_argument("headless=new")
